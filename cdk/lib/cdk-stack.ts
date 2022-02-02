@@ -11,20 +11,20 @@ export class CdkStack extends Stack {
     super(scope, id, props);
 
     // S3
-    const BlogBucket = new s3.Bucket(this, "CDKBlogBucket", {
+    const BlogBucket = new s3.Bucket(this, "UOWCLOUDCDKBlogBucket", {
       publicReadAccess: true,
-      bucketName: "uow-cca-blog-bucket",
+      bucketName: "uow-cloud-cca-blog-bucket",
       websiteIndexDocument: "index.html" 
     })
 
     // S3 Deployment
-    new s3Deployment.BucketDeployment(this, 'CDKBlogDeployment', {
+    new s3Deployment.BucketDeployment(this, 'UowCloudCDKBlogDeployment', {
       sources: [s3Deployment.Source.asset(path.resolve(__dirname, '../../blog/public'))],
       destinationBucket: BlogBucket
     })
 
     // Cloudfront
-    new cloudfront.Distribution(this, 'CFWebDistribution', {
+    new cloudfront.Distribution(this, 'UOWCLOUDFRONTCFWebDistribution', {
       defaultBehavior: { origin: new origins.S3Origin(BlogBucket) }
     })
   }

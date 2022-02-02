@@ -19,6 +19,6 @@ new CdkStack(app, 'CdkStack', {
 
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
   env: {
-    region: 'eu-central-1'
+    region: 'ap-southeast-1'
   }
 });
