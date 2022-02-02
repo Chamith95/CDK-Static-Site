@@ -11,9 +11,9 @@ export class CdkStack extends Stack {
     super(scope, id, props);
 
     // S3
-    const BlogBucket = new s3.Bucket(this, "UOWCLOUDCDKBlogBucket", {
+    const BlogBucket = new s3.Bucket(this, "UOWCLOUDCDKBlogBucketAwsTrain", {
       publicReadAccess: true,
-      bucketName: "uow-cloud-cca-blog-bucket",
+      bucketName: "uow-cloud-cca-blog-bucket-aws-training",
       websiteIndexDocument: "index.html" 
     })
 
